@@ -1,0 +1,200 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "simplestack",
+    "description": "",
+    "license": {
+      "name": "GNU GPLv3",
+      "url": "https://www.gnu.org/licenses/gpl.txt"
+    },
+    "version": "0.1"
+  },
+  "paths": {
+    "/projects": {
+      "get": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {}
+        }
+      }
+    },
+    "/projects/{projectId}": {
+      "get": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "delete": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "parameters": [
+        {
+          "name": "projectId",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "/tenants": {
+      "get": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {}
+        }
+      }
+    },
+    "/tenants/{tenantId}": {
+      "get": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "delete": {
+        "responses": {
+          "200": {}
+        }
+      }
+    },
+    "/folders": {
+      "get": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {}
+        }
+      }
+    },
+    "/folders/{folderId}": {
+      "get": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "post": {
+        "responses": {
+          "200": {}
+        }
+      },
+      "delete": {
+        "responses": {
+          "200": {}
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Project": {
+        "properties": {
+          "projectId": {
+            "type": "string"
+          },
+          "lifecycleState": {
+            "type": "string"
+          },
+          "createTime": {
+            "type": "string"
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/Folder"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "projectNumber": {
+            "format": "int64",
+            "type": "integer"
+          }
+        }
+      },
+      "Tenant": {
+        "required": [
+          "name",
+          "owner"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "owner": {
+            "$ref": "#/components/schemas/User"
+          },
+          "lifecycleState": {
+            "type": "string"
+          },
+          "createTime": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updateTime": {
+            "format": "date-time",
+            "type": "string"
+          }
+        }
+      },
+      "User": {},
+      "Folder": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/Tenant"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "lifecycleState": {
+            "type": "string"
+          },
+          "createTime": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "updateTime": {
+            "format": "date-time",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
